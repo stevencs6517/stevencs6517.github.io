@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>steven's apps ♡</title>
+<meta name="theme-color" content="#ff9ec7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --pink:#ff9ec7; --pink-d:#ff6fae; --lav:#b69ce8; --ink:#7a5a86; --ink2:#a98fbb; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;min-height:100vh;}
+  body{
+    font-family:"Quicksand","Segoe UI",sans-serif; color:var(--ink);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:24px; gap:6px;
+    background:
+      radial-gradient(circle at 15% 0%, #fff2fb 0%, transparent 45%),
+      radial-gradient(circle at 85% 10%, #eafaff 0%, transparent 45%),
+      linear-gradient(160deg,#ffe3f3,#e9ddff 55%,#d8f3ff);
+    background-attachment:fixed;
+  }
+  h1{font-family:"Baloo 2",sans-serif; color:var(--pink-d); font-size:30px; margin:0 0 2px;}
+  .sub{color:var(--ink2); font-weight:600; margin:0 0 18px;}
+  .apps{display:flex; flex-direction:column; gap:14px; width:100%; max-width:380px;}
+  a.app{
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--ink);
+    background:#fffafd; border:3px solid #ffd9ee; border-radius:24px; padding:18px 20px;
+    box-shadow:0 10px 24px rgba(255,158,199,.28); transition:transform .12s, box-shadow .12s;
+  }
+  a.app:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,158,199,.4);}
+  a.app .emoji{font-size:40px; line-height:1;}
+  a.app .txt{text-align:left;}
+  a.app .name{font-family:"Baloo 2",sans-serif; font-weight:800; font-size:18px; color:var(--pink-d);}
+  a.app .desc{font-size:12px; color:var(--ink2); font-weight:600; margin-top:2px;}
+  .foot{margin-top:22px; font-size:12px; color:var(--ink2);}
+</style>
+</head>
+<body>
+  <h1>🐾 steven's little app shelf 🎀</h1>
+  <p class="sub">pick a thing to play with ♡</p>
+  <div class="apps">
+    <a class="app" href="cat-monopoly-/">
+      <span class="emoji">🐱</span>
+      <span class="txt"><div class="name">Cat Monopoly</div><div class="desc">build your fluffy little cat empire — a kawaii idle clicker</div></span>
+    </a>
+    <a class="app" href="crush-probability-/">
+      <span class="emoji">💘</span>
+      <span class="txt"><div class="name">Crush Probability</div><div class="desc">find out the chance someone likes you back</div></span>
+    </a>
+  </div>
+  <p class="foot">(=^･ω･^=) &nbsp;made with love</p>
+<script>
+"use strict";
+/* Heal the whole github.io origin: unregister any leftover service workers (e.g. an old sw.js)
+   and clear their caches, then reload once (loop-guarded). Because this page lives at the root,
+   it can clean up workers that were stuck serving the wrong page across all your apps. */
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.getRegistrations().then(regs=>{
+    if(!regs.length) return;
+    Promise.all(regs.map(r=>r.unregister()))
+      .then(()=> (window.caches&&caches.keys) ? caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k)))) : null)
+      .then(()=>{ if(!sessionStorage.getItem("swCleaned")){ sessionStorage.setItem("swCleaned","1"); location.reload(); } });
+  }).catch(()=>{});
+}
+</script>
+</body>
+</html>
